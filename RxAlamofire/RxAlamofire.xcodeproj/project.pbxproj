@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		637D95951C4E37CE00F1FA67 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		637D95961C4E37CE00F1FA67 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		637D95991C4E37F200F1FA67 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		637D959A1C4E37F200F1FA67 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		637D959D1C4E380300F1FA67 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		637D959E1C4E380300F1FA67 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		637D95951C4E37CE00F1FA67 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		637D95961C4E37CE00F1FA67 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		637D95991C4E37F200F1FA67 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		637D959A1C4E37F200F1FA67 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		637D959D1C4E380300F1FA67 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		637D959E1C4E380300F1FA67 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		66400D40230EF1D70070F86E /* RxNetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66400D3E230EF1D40070F86E /* RxNetworkReachabilityManager.swift */; };
+		66400D41230EF1D70070F86E /* RxNetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66400D3E230EF1D40070F86E /* RxNetworkReachabilityManager.swift */; };
+		66400D42230EF1D80070F86E /* RxNetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66400D3E230EF1D40070F86E /* RxNetworkReachabilityManager.swift */; };
 		6D6BB8D62269792900D2098B /* RxAlamofire_watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D6BB8D42269792900D2098B /* RxAlamofire_watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D6BB8E322697A7300D2098B /* RxAlamofire_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D6BB8E122697A7300D2098B /* RxAlamofire_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89FCCEA0CC1120C8755B1BBC /* Pods_RxAlamofire_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68185B44C8BB07FAE49616D /* Pods_RxAlamofire_iOS_Example.framework */; };
@@ -95,6 +98,7 @@
 		630894ED02E1EBDE38D4062C /* Pods-RxAlamofire-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAlamofire-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-RxAlamofire-tvOS/Pods-RxAlamofire-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		637D95711C4E370C00F1FA67 /* RxAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		637D957F1C4E374500F1FA67 /* RxAlamofire-tvOS-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RxAlamofire-tvOS-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66400D3E230EF1D40070F86E /* RxNetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxNetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		6D6BB8D22269792900D2098B /* RxAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D6BB8D42269792900D2098B /* RxAlamofire_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxAlamofire_watchOS.h; sourceTree = "<group>"; };
 		6D6BB8D52269792900D2098B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -223,7 +227,6 @@
 				F1EB48A4DA16C51E863AFDCB /* Pods-RxAlamofire-watchOS.debug.xcconfig */,
 				DE3518A8A075588DCB4D0525 /* Pods-RxAlamofire-watchOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -289,6 +292,7 @@
 		C87D2CA01D8F35F8003F5936 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				66400D3E230EF1D40070F86E /* RxNetworkReachabilityManager.swift */,
 				C87D2CA11D8F35F8003F5936 /* Cocoa */,
 				C87D2CA31D8F35F8003F5936 /* RxAlamofire.h */,
 				C87D2CA41D8F35F8003F5936 /* RxAlamofire.swift */,
@@ -591,15 +595,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				637D95991C4E37F200F1FA67 /* BuildFile in Resources */,
+				637D95991C4E37F200F1FA67 /* (null) in Resources */,
 				C87D2C921D8F34CF003F5936 /* LaunchScreen.storyboard in Resources */,
-				637D959E1C4E380300F1FA67 /* BuildFile in Resources */,
-				637D959D1C4E380300F1FA67 /* BuildFile in Resources */,
-				637D95951C4E37CE00F1FA67 /* BuildFile in Resources */,
+				637D959E1C4E380300F1FA67 /* (null) in Resources */,
+				637D959D1C4E380300F1FA67 /* (null) in Resources */,
+				637D95951C4E37CE00F1FA67 /* (null) in Resources */,
 				C87D2C911D8F34CF003F5936 /* Assets.xcassets in Resources */,
 				C87D2C931D8F34CF003F5936 /* Main.storyboard in Resources */,
-				637D95961C4E37CE00F1FA67 /* BuildFile in Resources */,
-				637D959A1C4E37F200F1FA67 /* BuildFile in Resources */,
+				637D95961C4E37CE00F1FA67 /* (null) in Resources */,
+				637D959A1C4E37F200F1FA67 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,6 +805,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66400D41230EF1D70070F86E /* RxNetworkReachabilityManager.swift in Sources */,
 				C87D2CAA1D8F35F8003F5936 /* RxAlamofire.swift in Sources */,
 				C87D2CA61D8F35F8003F5936 /* URLSession+RxAlamofire.swift in Sources */,
 			);
@@ -825,6 +830,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66400D42230EF1D80070F86E /* RxNetworkReachabilityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +838,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66400D40230EF1D70070F86E /* RxNetworkReachabilityManager.swift in Sources */,
 				C87D2CA91D8F35F8003F5936 /* RxAlamofire.swift in Sources */,
 				C87D2CA51D8F35F8003F5936 /* URLSession+RxAlamofire.swift in Sources */,
 			);
