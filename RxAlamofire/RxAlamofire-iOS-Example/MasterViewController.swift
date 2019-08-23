@@ -22,9 +22,16 @@ class MasterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dummyDataBtn: UIButton!
     @IBOutlet weak var dummyDataTextView: UITextView!
     
+    let reachabilityManager = RxNetworkReachabilityManager(host: "https://github.com")!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        reachabilityManager.status
+            .subscribe(onNext: {
+                print("reachability changed: \($0)")
+            })
+            .disposed(by: disposeBag)
     }
 
     override func viewWillAppear(_ animated: Bool) {

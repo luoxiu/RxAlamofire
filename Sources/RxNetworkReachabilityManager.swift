@@ -1,49 +1,55 @@
 import RxSwift
 import Alamofire
 
-open class RxNetworkReachabilityManager: NetworkReachabilityManager, ReactiveCompatible {
+open class RxNetworkReachabilityManager {
     
-    public let subject = PublishSubject<NetworkReachabilityStatus>()
-    private var underlyingListener: Listener?
+    public typealias NetworkReachabilityStatus = NetworkReachabilityManager.NetworkReachabilityStatus
     
-    override open var listener: Listener? {
-        get {
-            return underlyingListener
+    private let reachabilityManager: NetworkReachabilityManager
+    private let statusSubject: BehaviorSubject<NetworkReachabilityStatus>
+    
+    public init?(host: String) {
+        guard let mgr = NetworkReachabilityManager(host: host) else { return nil }
+        self.reachabilityManager = mgr
+        self.statusSubject = .init(value: mgr.networkReachabilityStatus)
+    }
+    
+    public init?() {
+        guard let mgr = NetworkReachabilityManager() else { return nil }
+        self.reachabilityManager = mgr
+        self.statusSubject = .init(value: mgr.networkReachabilityStatus)
+    }
+    
+    private func setupListener() {
+        assert(self.reachabilityManager.listener == nil)
+        let subject = self.statusSubject
+        self.reachabilityManager.listener = {
+            subject.onNext($0)
         }
-        set {
-            underlyingListener = { [weak self] in
-                newValue?($0)
-                self?.subject.onNext($0)
-            }
-        }
     }
     
-    public var reachabilityDidChange: Observable<NetworkReachabilityStatus> {
-        return self.subject.asObserver()
-    }
-}
-
-
-extension Reactive where Base: RxNetworkReachabilityManager {
-    
-    /// Whether the network is currently reachable.
-    public var isReachable: Observable<Bool> {
-        return self.isReachableOnWWAN.withLatestFrom(self.isReachableOnEthernetOrWiFi).asObservable()
+    private var reachabilityChanged: Observable<NetworkReachabilityStatus> {
+        return self.statusSubject.asObserver()
     }
     
-    /// Whether the network is currently reachable over the WWAN interface.
+    /// Observes whether the network is currently reachable over the WWAN interface.
     public var isReachableOnWWAN: Observable<Bool> {
-        return self.base.reachabilityDidChange.map { $0 == .reachable(.wwan) }
+        return self.reachabilityChanged.map { $0 == .reachable(.wwan) }
     }
     
-    /// Whether the network is currently reachable over Ethernet or WiFi interface.
+    /// Observes whether the network is currently reachable over Ethernet or WiFi interface.
     public var isReachableOnEthernetOrWiFi: Observable<Bool> {
-        return self.base.reachabilityDidChange.map { $0 == .reachable(.ethernetOrWiFi) }
+        return self.reachabilityChanged.map { $0 == .reachable(.ethernetOrWiFi) }
     }
     
-    /// The current network reachability status.
+    /// Observes whether the network is currently reachable.
+    public var isReachable: Observable<Bool> {
+        return Observable.merge(self.isReachableOnWWAN, self.isReachableOnEthernetOrWiFi)
+    }
+    
+    /// Observes the current network reachability status.
     public var networkReachabilityStatus: Observable<RxNetworkReachabilityManager.NetworkReachabilityStatus> {
-        return self.base.reachabilityDidChange
+        return self.reachabilityChanged
     }
     
     /// Alias for networkReachabilityStatus.
